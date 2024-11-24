@@ -1,0 +1,27 @@
+{
+  "name": "38-table_pro",
+  "version": "1.0.0",
+  "description": "Introducing Table Pro, the successor to Table! Customers will now need to make an account and log in before they are able to make reservations for a table at a restaurant of their choice.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.21.0",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.21.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}

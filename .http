@@ -1,0 +1,45 @@
+@host = http://localhost:3000
+
+### Register new customer
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "email": "foo@bar.baz",
+  "password": "foobar"
+}
+
+### Login
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "email": "foo@bar.baz",
+  "password": "foobar"
+}
+
+### Get reservations as logged in customer
+@token = {{login.response.body.token}}
+GET {{host}}/reservations
+Authorization: Bearer {{token}}
+
+### Create reservation as logged in customer
+POST {{host}}/reservations
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "partySize": 5,
+  "restaurantId": 3
+}
+
+### Get all restaurants
+GET {{host}}/restaurants
+
+### Get specific restaurant
+GET {{host}}/restaurants/3
+
+### Get specific restaurant as a customer
+GET {{host}}/restaurants/3
+Authorization: Bearer {{token}}
